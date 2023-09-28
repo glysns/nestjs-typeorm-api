@@ -8,7 +8,7 @@ import { EscolaViewRepository } from '../repository/escola-view.repository';
 
 @Injectable()
 export class EscolaService {
-  constructor(private readonly repository: EscolaRepository,private readonly viewRepository: EscolaViewRepository) {}
+  constructor(private readonly repository: EscolaRepository, private readonly viewRepository: EscolaViewRepository) {}
 
   async create(dto: EscolaDto): Promise<Escola> {
     

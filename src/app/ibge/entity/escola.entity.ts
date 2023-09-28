@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({schema: 'iseduc', name: 'tb_entidade'})
+@Entity({schema: 'apl_nestjs', name: 'tb_entidade'})
 export class Escola extends BaseEntity {
   @PrimaryColumn({name: 'id_entidade'})
   id: number;
