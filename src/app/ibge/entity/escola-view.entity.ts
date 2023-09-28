@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({schema: 'iseduc', name: 'tb_entidade'})
+@Entity({schema: 'iseduc', name: 'vw_escola'})
 export class EscolaView extends BaseEntity {
   @PrimaryColumn({name: 'id_entidade'})
   id: number;

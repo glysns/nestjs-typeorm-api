@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { EscolaService } from '../service/escola.service';
 import { EscolaDto } from '../dto/escola.dto';
-import { Escola } from '../entity/escola.entity';
 import { EscolaView } from '../entity/escola-view.entity';
 
 @Controller({
