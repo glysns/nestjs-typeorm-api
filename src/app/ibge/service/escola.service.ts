@@ -28,12 +28,6 @@ export class EscolaService {
   }
 
   async findAll(): Promise<EscolaView[]> {
-    return await this.viewRepository.find({
-      select: {
-       
-        nome: true
-        
-      },
-    });
+    return await this.viewRepository.find();
   }
 }

@@ -1,4 +1,5 @@
 import { BaseEntity, Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { SituacaoFuncionamento } from "./situacao.funcionamento.emb.entity";
 
 @Entity({schema: 'apl_nestjs', name: 'vw_escola'})
 export class EscolaView extends BaseEntity {
@@ -7,9 +8,6 @@ export class EscolaView extends BaseEntity {
 
   @Column({ name:"ds_nome" })
   nome: string;
-
-  @Column({ name:"ds_cnpj" })
-  cnpj: string;
 
   @Column({ name:"ds_cep" })
   cep: string;
@@ -44,5 +42,7 @@ export class EscolaView extends BaseEntity {
   @Column({ name:"ds_longitude" })
   longitude: string;
 
+  @Column(() => SituacaoFuncionamento)
+  situacaoFuncionamento: SituacaoFuncionamento;
   
 }
