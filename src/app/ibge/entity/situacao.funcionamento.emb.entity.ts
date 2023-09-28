@@ -1,9 +1,9 @@
 import { Column } from "typeorm"
 
 export class SituacaoFuncionamento {
-    @Column({ name:'id_situacao_funcionamento' })
+    @Column()
     id: number
 
-    @Column({ name:'ds_situacao_funcionamento' })
+    @Column()
     nome: string
 }
