@@ -1,5 +1,5 @@
 import { BaseEntity, Column, Entity, PrimaryColumn, ManyToOne,JoinColumn } from "typeorm";
-import { SituacaoFuncionamento } from "./situacao.funcionamento.emb.entity";
+import { SituacaoFuncionamento } from "./situacao-funcionamento.entity";
 
 @Entity({schema: 'apl_nestjs', name: 'tb_entidade'})
 export class Escola extends BaseEntity {

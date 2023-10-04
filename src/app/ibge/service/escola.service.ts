@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EscolaRepository } from '../repository/escola.repository';
 import { Escola } from '../entity/escola.entity';
 import { EscolaDto } from '../dto/escola.dto';
+import { SituacaoFuncionamento } from '../entity/situacao-funcionamento.entity';
 
 @Injectable()
 export class EscolaService {
@@ -58,7 +59,9 @@ export class EscolaService {
     entity.numeroCodigoIbge = numeroCodigoIbge;
     entity.distrito = distrito;
     
-   
+    const situacao =  new SituacaoFuncionamento();
+    situacao.id = situacaoFuncionamento;
+    entity.situacaoFuncionamento = situacao;
     return entity;
   }
 }
