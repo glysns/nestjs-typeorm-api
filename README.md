@@ -135,3 +135,16 @@ CREATE TABLE apl_nestjs.tb_entidade_ano_letivo (
 	CONSTRAINT fk_tb_ent_ano_let_ano_let FOREIGN KEY (id_ano_letivo) REFERENCES apl_nestjs.tb_ano_letivo(id_ano_letivo),
 	CONSTRAINT fk_tb_ent_ano_let_ent FOREIGN KEY (id_entidade) REFERENCES apl_nestjs.tb_entidade(id_entidade)
 );
+
+
+import { Transform } from 'class-transformer';
+
+
+@Transform(() => UserDTO)
+  toDTO(): UserDTO {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+    };
+  }
