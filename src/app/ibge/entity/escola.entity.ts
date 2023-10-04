@@ -12,7 +12,9 @@ export class Escola extends BaseEntity {
   @Column({ name:"nr_cod_inep" })
   numeroCodigoIneo: number;
 
-  @ManyToOne(() => SituacaoFuncionamento)
+  @ManyToOne(() => SituacaoFuncionamento,  {
+    eager: true,
+})
   @JoinColumn({ name: "id_situacao_funcionamento" })
   situacaoFuncionamento: SituacaoFuncionamento;
 
