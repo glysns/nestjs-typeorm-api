@@ -6,13 +6,14 @@ import { CidadeService } from './service/cidade.service';
 import { CidadeRepository } from './repository/cidade.repository';
 import { CidadeController } from './webservice/cidade.controller';
 import { Escola } from './entity/escola.entity';
+import { SituacaoFuncionamento } from './entity/situacao-funcionamento.entity';
 import { EscolaService } from './service/escola.service';
 import { EscolaRepository } from './repository/escola.repository';
 import { EscolaControllerV1 } from './webservice/escola.controller';
 import { EscolaViewRepository } from './repository/escola-view.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Cidade, Escola])],
+  imports: [TypeOrmModule.forFeature([Cidade, Escola, SituacaoFuncionamento])],
   providers: [CidadeService, CidadeRepository,
   EscolaService, EscolaRepository, EscolaViewRepository],
   controllers: [CidadeController, EscolaControllerV1],

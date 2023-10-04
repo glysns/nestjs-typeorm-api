@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryColumn, ManyToOne,JoinColumn } from "typeorm";
+import { SituacaoFuncionamento } from "./situacao.funcionamento.emb.entity";
 
 @Entity({schema: 'apl_nestjs', name: 'tb_entidade'})
 export class Escola extends BaseEntity {
@@ -11,8 +12,9 @@ export class Escola extends BaseEntity {
   @Column({ name:"nr_cod_inep" })
   numeroCodigoIneo: number;
 
-  @Column({ name:"id_situacao_funcionamento" })
-  situacaoFuncionamento: number;
+  @ManyToOne(() => SituacaoFuncionamento)
+  @JoinColumn({ name: "id_situacao_funcionamento" })
+  situacaoFuncionamento: SituacaoFuncionamento;
 
   @Column({ name:"ds_nome" })
   nome: string;
