@@ -94,3 +94,44 @@ npm install --save dotenv
 npm i --save-dev nodemon ts-node
 
 npm run start:dev
+
+
+npm run start:debug
+
+
+-- apl_nestjs.vw_escola source
+
+CREATE OR REPLACE VIEW apl_nestjs.vw_escola
+AS SELECT e.id_entidade,
+    e.nr_cod_inep,
+    e.ds_nome,
+    e.ds_cep,
+    e.ds_logradouro,
+    e.ds_numero,
+    e.ds_complemento,
+    e.ds_bairro,
+    e.ds_ddd,
+    e.ds_fone,
+    e.ds_fone2,
+    e.ds_email,
+    e.ds_latitude,
+    e.ds_longitude,
+    sf.id_situacao_funcionamento AS "situacaoFuncionamentoId",
+    sf.ds_nome AS "situacaoFuncionamentoNome"
+   FROM apl_nestjs.tb_entidade e
+     JOIN apl_nestjs.tb_situacao_funcionamento sf ON e.id_situacao_funcionamento = sf.id_situacao_funcionamento
+  WHERE e.id_grupo_entidade = 4;
+
+
+  -- apl_nestjs.tb_entidade_ano_letivo definition
+
+-- Drop table
+
+-- DROP TABLE apl_nestjs.tb_entidade_ano_letivo;
+
+CREATE TABLE apl_nestjs.tb_entidade_ano_letivo (
+	id_entidade int8 NOT NULL,
+	id_ano_letivo int8 NOT NULL,
+	CONSTRAINT fk_tb_ent_ano_let_ano_let FOREIGN KEY (id_ano_letivo) REFERENCES apl_nestjs.tb_ano_letivo(id_ano_letivo),
+	CONSTRAINT fk_tb_ent_ano_let_ent FOREIGN KEY (id_entidade) REFERENCES apl_nestjs.tb_entidade(id_entidade)
+);

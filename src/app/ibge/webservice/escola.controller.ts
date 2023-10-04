@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param } from '@nestjs/common';
 import { EscolaService } from '../service/escola.service';
 import { EscolaDto } from '../dto/escola.dto';
-import { EscolaView } from '../entity/escola-view.entity';
+import { Escola } from '../entity/escola.entity';
 
 @Controller({
   path: 'escolas',
@@ -11,11 +11,22 @@ export class EscolaControllerV1 {
 
   @Post()
   async create(@Body() dto: EscolaDto): Promise<EscolaDto> {
-    return await this.service.create(dto);
+    return await this.service.save(dto);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: number, @Body() dto: EscolaDto): Promise<Number> {
+    return this.service.update(id, dto);
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: number) : Promise<Escola> {
+    return this.service.findOne(id);
   }
 
   @Get()
-  async findAll(): Promise<EscolaView[]> {
+  async findAll(): Promise<Escola[]> {
     return await this.service.findAll();
   }
+
 }
