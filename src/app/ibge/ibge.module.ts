@@ -10,12 +10,11 @@ import { SituacaoFuncionamento } from './entity/situacao-funcionamento.entity';
 import { EscolaService } from './service/escola.service';
 import { EscolaRepository } from './repository/escola.repository';
 import { EscolaControllerV1 } from './webservice/escola.controller';
-import { EscolaViewRepository } from './repository/escola-view.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Cidade, Escola, SituacaoFuncionamento])],
   providers: [CidadeService, CidadeRepository,
-  EscolaService, EscolaRepository, EscolaViewRepository],
+  EscolaService, EscolaRepository],
   controllers: [CidadeController, EscolaControllerV1],
   exports: [CidadeService,EscolaService],
 })
