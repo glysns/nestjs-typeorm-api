@@ -7,10 +7,10 @@ import { EscolaDto } from '../dto/escola.dto';
 export class EscolaService {
   constructor(private readonly repository: EscolaRepository) {}
 
-  async save (dto: EscolaDto): Promise<Escola> {
+  async save (dto: EscolaDto) {
     
     const entity = this.toEntity(dto);
-    return await this.repository.save(entity);
+    await this.repository.save(entity)
   }
 
   async update(id: number, dto: EscolaDto) {

@@ -10,8 +10,8 @@ export class EscolaControllerV1 {
   constructor(private readonly service: EscolaService) {}
 
   @Post()
-  async create(@Body() dto: EscolaDto): Promise<EscolaDto> {
-    return await this.service.save(dto);
+  async create(@Body() dto: EscolaDto){
+     await this.service.save(dto);
   }
 
   @Put(':id')
